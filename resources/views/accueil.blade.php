@@ -43,9 +43,11 @@ HIHO
                 <h4>List des articles</h4>
                 @forelse($articles as $article)
                     <li class="list-group-item">
-                        <div class="title">
-                            {{ $article->titre }}
-                        </div>
+                        <a href="article/{{ $article -> id }}">
+                            <div class="title">
+                                {{ $article->titre }}
+                            </div>
+                        </a>
                         <div class="description">
                             {{ $article->description }}
                         </div>

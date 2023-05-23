@@ -37,6 +37,15 @@ class testController extends Controller
         return redirect()->back()->with("success","l'article à été bien ajouter");
 
     }
+
+    public function findeArticle($id){
+        // select * from articles where id = $id
+        $article = articles::find($id);
+        return view('articles.show',[
+            'article' => $article
+        ]);
+    }
+
     public function methode1($userName){
         return "Bonjour : ".$userName;
     }

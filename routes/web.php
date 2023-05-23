@@ -40,8 +40,10 @@ Route::get("/exemple",[testController::class,'methode2']);
 //appelai la page acceuil depuis le controller
 Route::get("/acceuil",[testController::class,'index']);
 Route::post("/acceuil",[testController::class,'store']);
+Route::get("/article/{id}",[testController::class,'findeArticle']);
+
 
 //route pour la page ajout articles
-Route::post("/articles",[ArticleController::class,'AddArticle']);
+// Route::post("/articles",[ArticleController::class,'AddArticle']);
 
 //php methodes  $_POST || $_GET
