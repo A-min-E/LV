@@ -38,9 +38,9 @@ class testController extends Controller
 
     }
 
-    public function findeArticle($id){
+    public function findeArticle(articles $article){
         // select * from articles where id = $id
-        $article = articles::find($id);
+        // $article = articles::find($article); sa et fait automaticment en parametre de fonction
         return view('articles.show',[
             'article' => $article
         ]);

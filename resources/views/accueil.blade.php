@@ -1,6 +1,6 @@
 @extends('./layouts/app')
 @section("title")
-HIHO
+Les articles
 @endsection
 
 @section("page-content")
