@@ -10,8 +10,8 @@ Article
             <p>{{ $article->description }}</p>
         </div>
         <div class="card-footer">
-            <button class="btn btn-info">Editer</button>
-            <button class="btn btn-danger">Supprimer</button>
+            <a href="/articles/{{ $article->id }}/edit" class="btn btn-info" >Editer</a>
+            <a href="/articles/{{ $article->id }}/delete" class="btn btn-danger">Supprimer</a>
         </div>
     </div>
 @endsection

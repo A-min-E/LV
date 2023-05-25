@@ -46,6 +46,18 @@ class testController extends Controller
         ]);
     }
 
+    public function editArticle(articles $article){
+        return view("articles.edit",[
+            'article' => $article
+        ]);
+    }
+
+    public function deleteArticle(articles $article){
+        return view('articles.delete',[
+            'article' => $article
+        ]);
+    }
+
     public function methode1($userName){
         return "Bonjour : ".$userName;
     }
