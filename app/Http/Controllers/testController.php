@@ -53,9 +53,16 @@ class testController extends Controller
     }
 
     public function deleteArticle(articles $article){
-        return view('articles.delete',[
-            'article' => $article
-        ]);
+        $article->delete();
+        return redirect("/acceuil")->with("success",('l\'article à été supprimer par success'));
+    }
+
+    public function update(articles $article,ValidateFormRequest $req){
+        $article->titre = $req->titre;
+        $article->description = $req->description;
+        $article->save();
+
+        return redirect("/acceuil")->with('success','l\'article à été mis à jour');
     }
 
     public function methode1($userName){
