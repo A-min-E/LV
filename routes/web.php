@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\testController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +60,7 @@ Route::prefix('articles')->group(function(){
     Route::put("/{article}/update",[testController::class,"update"])->name('article.update');
     Route::delete("/{article}/delete",[testController::class,"deleteArticle"])->name("article.delete");
 });
+
+//Authentication
+Route::get("/register",[UserController::class,'register'])->name('registration');
+Route::post('/register',[UserController::class,'handleRegistration'])->name("registration");
