@@ -38,15 +38,24 @@ Route::get("/exemple",[testController::class,'methode2']);
 // });
 
 //appelai la page acceuil depuis le controller
-Route::get("/acceuil",[testController::class,'index']);
+Route::get("/acceuil",[testController::class,'index'])->name("acceuil");
 Route::post("/acceuil",[testController::class,'store']);
 // Route::get("/article/{id}",[testController::class,'findeArticle']);
-Route::get("/article/{article}",[testController::class,'findeArticle']);
-Route::get("/articles/{article}/edit",[testController::class,'editArticle']);
-Route::put("/articles/{article}/update",[testController::class,"update"]);
-Route::delete("/articles/{article}/delete",[testController::class,"deleteArticle"]);
+// Route::get("/articles/{article}",[testController::class,'findeArticle']);
+// Route::get("/articles/{article}/edit",[testController::class,'editArticle']);
+// Route::put("/articles/{article}/update",[testController::class,"update"]);
+// Route::delete("/articles/{article}/delete",[testController::class,"deleteArticle"]);
 
 //route pour la page ajout articles
 // Route::post("/articles",[ArticleController::class,'AddArticle']);
 
 //php methodes  $_POST || $_GET
+
+
+// use grouping route
+Route::prefix('articles')->group(function(){
+    Route::get("/{article}",[testController::class,'findeArticle'])->name("article.show");
+    Route::get("/{article}/edit",[testController::class,'editArticle'])->name('article.edit');
+    Route::put("/{article}/update",[testController::class,"update"])->name('article.update');
+    Route::delete("/{article}/delete",[testController::class,"deleteArticle"])->name("article.delete");
+});

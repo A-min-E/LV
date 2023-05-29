@@ -43,7 +43,7 @@ Les articles
                 <h4>List des articles</h4>
                 @forelse($articles as $article)
                     <li class="list-group-item">
-                        <a href="article/{{ $article -> id }}">
+                        <a href="{{ route('article.show',$article->id) }}">
                             <div class="title">
                                 {{ $article->titre }}
                             </div>
