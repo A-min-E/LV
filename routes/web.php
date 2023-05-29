@@ -62,5 +62,13 @@ Route::prefix('articles')->group(function(){
 });
 
 //Authentication
+    //registration
 Route::get("/register",[UserController::class,'register'])->name('registration');
 Route::post('/register',[UserController::class,'handleRegistration'])->name("registration");
+    //login
+Route::get("/login",[UserController::class,'login'])->name("login");
+Route::post('/login',[UserController::class,'handleLogin'])->name('login');
+
+Route::get("dashboard",function(){
+    return 'je suis connecté';
+});
