@@ -69,6 +69,5 @@ Route::post('/register',[UserController::class,'handleRegistration'])->name("reg
 Route::get("/login",[UserController::class,'login'])->name("login");
 Route::post('/login',[UserController::class,'handleLogin'])->name('login');
 
-Route::get("dashboard",function(){
-    return 'je suis connecté';
-});
+Route::get("dashboard",[UserController::class,'dashboard']);
+

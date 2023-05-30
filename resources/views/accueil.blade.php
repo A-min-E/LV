@@ -8,14 +8,15 @@ Les articles
         <div class="col-md-4">
             <div class="card mt-5">
                 <div class="card-body ">
-                    <form action="/acceuil" method="POST" class="form-product">
-                        @method('post')
-                        @csrf
-                        @if(session()->has("success"))
+                    @if(session()->has("success"))
                             <div class="alert alert-success">
                                 {{ session()->get("success") }}
                             </div>
                         @endif
+                    <form action="/acceuil" method="POST" class="form-product">
+                        @method('post')
+                        @csrf
+
                         <h3>Enregistrer un Article</h3>
                         <div class="form-group">
                             <label for="nom">Titre</label>

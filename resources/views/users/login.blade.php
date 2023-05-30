@@ -10,14 +10,12 @@ registration
         <div class="col-md-4 mt-5">
             <div class="card">
                 <div class="card-body">
+                    @if(session()->has("error"))
+                        <div class="alert alert-danger">{{ session()->get("error") }}</div>
+                    @endif
                     <form action="{{ route('login') }}" method="POST" class="form-product">
                         @method('post')
                         @csrf
-                        @if(session()->has("success"))
-                            <div class="alert alert-success">
-                                {{ session()->get("success") }}
-                            </div>
-                        @endif
                         <h3>Connecter vous</h3>
                         <div class="form-group mt-2">
                             <label for="email">Email</label>
@@ -38,9 +36,9 @@ registration
                                 @enderror
                         </div>
 
-                        <button class="btn btn-info btn-sm mt-2" type="submit" name="btn_submit">Inscription</button>
+                        <button class="btn btn-info btn-sm mt-2" type="submit" name="btn_submit">Connecter</button>
                     </form>
-                    <p class="mt-1">Aucun compt ? <a href="#">Inscrivez vous</a></p>
+                    <p class="mt-1">Aucun compt ? <a href="{{ route('registration') }}">Inscrier vous</a></p>
                 </div>
             </div>
     </div>

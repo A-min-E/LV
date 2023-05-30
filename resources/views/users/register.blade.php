@@ -13,11 +13,7 @@ registration
                     <form action="{{ route('registration') }}" method="POST" class="form-product">
                         @method('post')
                         @csrf
-                        @if(session()->has("success"))
-                            <div class="alert alert-success">
-                                {{ session()->get("success") }}
-                            </div>
-                        @endif
+
                         <h3>Nouvel Utilisateur</h3>
                         <div class="form-group">
                             <label for="nom">Nom</label>

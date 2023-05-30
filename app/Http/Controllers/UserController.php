@@ -36,14 +36,23 @@ class UserController extends Controller
         return redirect()->route('acceuil')->with("success","l'utilisateur à été ajouter par success");
     }
 
-    public function handleLogin(UserLoginRequest $userLoginReq){
+    public function handleLogin(Request $request){
         //select * from users where email = $email && password = $password
-        if(Auth::attempt($userLoginReq)){
+        // this part usefull if you don't ghave
+        $credentials = $request->validate([
+            'email' => ['required','email'],
+            'password' => ['required']
+        ]);
+        if(Auth::attempt($credentials)){
             //$_SESSION['user_logged'] = ture (en php)
-            $userLoginReq->session()->regenerate();
-            return redirect()->inrended("dashboard");
+            $request->session()->regenerate();
+            return redirect()->intended("dashboard");
         }else{
-
+            return redirect()->back()->with('error','Information de connexion non reconnu ');
         }
+    }
+
+    public function dashboard(){
+        return view("dashboard");
     }
 }
