@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidateFormRequest;
 use App\Models\articles;
+use Illuminate\Support\Facades\Auth;
 
 class testController extends Controller
 {
@@ -31,7 +32,8 @@ class testController extends Controller
 
         articles::create([
             'titre' => $req->titre,
-            'description' => $req->description
+            'description' => $req->description,
+            'user_id' => Auth::id()
         ]);
 
         return redirect()->back()->with("success","l'article à été bien ajouter");

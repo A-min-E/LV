@@ -46,7 +46,7 @@ class UserController extends Controller
         if(Auth::attempt($credentials)){
             //$_SESSION['user_logged'] = ture (en php)
             $request->session()->regenerate();
-            return redirect()->intended("dashboard");
+            return redirect()->intended("home");
         }else{
             return redirect()->back()->with('error','Information de connexion non reconnu ');
         }
