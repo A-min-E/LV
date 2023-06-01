@@ -13,7 +13,7 @@ class testController extends Controller
     }
 
     public function index(){
-        $articles = articles::all();
+        $articles = articles::paginate(3);
         return view("accueil",[
             'articles' => $articles
         ]);

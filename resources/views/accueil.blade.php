@@ -25,6 +25,9 @@ Les articles
                     <p class="text-danger">aucun article trouvé.</p>
                 @endforelse
             </ul>
+            <div>
+                {{ $articles->links() }}
+            </div>
         </div>
 
         {{-- enregistrer un article --}}

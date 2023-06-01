@@ -31,7 +31,7 @@
                   </li>
                   @else
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page"  href="{{ route('registration') }}">Mon compte</a>
+                    <a class="nav-link" aria-current="page"  href="{{ route('login') }}">Mon compte</a>
                   </li>
                 @endauth
 
