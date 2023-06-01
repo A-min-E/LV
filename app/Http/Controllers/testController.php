@@ -73,4 +73,12 @@ class testController extends Controller
     public function methode2(){
         return "this is the seconde methode";
     }
+
+    public function mine(){
+        //select * from articles where user_id = 1 (current user id )
+        $myarticles = articles::where('user_id',Auth::id())->get();
+        return view('articles.mine',[
+            "my_articles" => $myarticles
+        ]);
+    }
 }

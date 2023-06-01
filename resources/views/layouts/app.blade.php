@@ -21,14 +21,17 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('acceuil') }}">Mes Article</a>
+                    <a class="nav-link " aria-current="page" href="{{ route('article.mine') }}">Mes Article</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" aria-current="page"  href="#">Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page"  href="{{ route('logout') }}">Déconnecter</a>
                   </li>
                   @else
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('registration') }}">Mon compte</a>
+                    <a class="nav-link" aria-current="page"  href="{{ route('registration') }}">Mon compte</a>
                   </li>
                 @endauth
 

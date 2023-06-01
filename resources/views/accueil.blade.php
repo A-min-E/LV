@@ -7,7 +7,7 @@ Les articles
     <div class="row">
 
         {{-- list des articles --}}
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12">
             <ul class="list-group mt-5">
                 <h4>List des articles</h4>
                 @forelse($articles as $article)

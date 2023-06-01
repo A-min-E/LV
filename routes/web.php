@@ -72,8 +72,11 @@ Route::middleware(['auth'])->group(function(){
         Route::get("/{article}/edit",[testController::class,'editArticle'])->name('article.edit');
         Route::put("/{article}/update",[testController::class,"update"])->name('article.update');
         Route::delete("/{article}/delete",[testController::class,"deleteArticle"])->name("article.delete");
+
     });
     Route::get("home",[UserController::class,'dashboard']);
+    Route::get('/mine',[testController::class,'mine'])->name('article.mine');
+    Route::get('/logout',[UserController::class,"logout"])->name('logout');
 });
 
 

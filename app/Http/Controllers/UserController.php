@@ -7,6 +7,7 @@ use App\Http\Requests\createUserRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UserLoginRequest;
 
 class UserController extends Controller
@@ -54,5 +55,11 @@ class UserController extends Controller
 
     public function dashboard(){
         return view("dashboard");
+    }
+
+    public function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect('login');
     }
 }
